@@ -14,7 +14,7 @@ public class User {
 	private String userName;
 	@Column(nullable = false)
 	private String password;
-	@Column(nullable = false)
+	@Column
 	private int age;
 
 	public long getId() {
