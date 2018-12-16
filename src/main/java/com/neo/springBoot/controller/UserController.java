@@ -1,23 +1,61 @@
 package com.neo.springBoot.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.neo.springBoot.entity.User;
-import com.neo.springBoot.service.Userservice;
+import com.neo.springBoot.service.UserService;
 
-@RestController
+@Controller
 public class UserController {
 
-	@Autowired
-	private Userservice userService;
+	@Resource
+	UserService userService;
 
-	@RequestMapping("/user/loadUserPage")
-	private Page<User> loadUserPage(Pageable page, String params) {
-		return userService.loadUserPage(params, page);
+	@RequestMapping("/")
+	public String index() {
+		return "redirect:/list";
 	}
 
+	@RequestMapping("/list")
+	public String list(Model model) {
+		List<User> users = userService.getUserList();
+		model.addAttribute("users", users);
+		return "user/list.html";
+	}
+
+	@RequestMapping("/toAdd")
+	public String toAdd() {
+		return "user/userAdd";
+	}
+
+	@RequestMapping("/add")
+	public String add(User user) {
+		userService.save(user);
+		return "redirect:/list";
+	}
+
+	@RequestMapping("/toEdit")
+	public String toEdit(Model model, Long id) {
+		User user = userService.findUserById(id);
+		model.addAttribute("user", user);
+		return "user/userEdit";
+	}
+
+	@RequestMapping("/edit")
+	public String edit(User user) {
+		userService.edit(user);
+		return "redirect:/list";
+	}
+
+	@RequestMapping("/delete")
+	public String delete(Long id) {
+		userService.delete(id);
+		return "redirect:/list";
+	}
 }

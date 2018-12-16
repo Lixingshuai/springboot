@@ -1,30 +1,42 @@
 package com.neo.springBoot.service.impl;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.neo.springBoot.entity.User;
 import com.neo.springBoot.entity.UserRepository;
-import com.neo.springBoot.service.Userservice;
+import com.neo.springBoot.service.UserService;
 
 @Service
-@Transactional
-public class UserServiceImpl implements Userservice {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
 
 	@Override
-	public Page<User> loadUserPage(String params, Pageable pageable) {
-		if (params != null && params.trim().length() > 0) {
-			return userRepository.findByUserName(params, pageable);
-		} else {
-			return userRepository.findAllByOrderByIdDesc(pageable);
-		}
+	public List<User> getUserList() {
+		return userRepository.findAll();
 	}
 
+	@Override
+	public User findUserById(long id) {
+		return userRepository.findById(id);
+	}
+
+	@Override
+	public void save(User user) {
+		userRepository.save(user);
+	}
+
+	@Override
+	public void edit(User user) {
+		userRepository.save(user);
+	}
+
+	@Override
+	public void delete(long id) {
+		userRepository.deleteById(id);
+	}
 }
