@@ -17,10 +17,10 @@ public class UserController {
 	@Resource
 	UserService userService;
 
-	@RequestMapping("/")
-	public String index() {
-		return "redirect:/list";
-	}
+//	@RequestMapping("/")
+//	public String index() {
+//		return "redirect:/list";
+//	}
 
 	@RequestMapping("/list")
 	public String list(Model model) {
