@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NeoProperties {
-	@Value("${com.neo.title}")
+public class DemoProperties {
+	@Value("${com.demo.title}")
 	private String title;
-	@Value("${com.neo.description}")
+	@Value("${com.demo.description}")
 	private String description;
 
 	public String getTitle() {
