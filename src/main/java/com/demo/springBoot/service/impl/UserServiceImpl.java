@@ -1,13 +1,13 @@
-package com.neo.springBoot.service.impl;
+package com.demo.springBoot.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.neo.springBoot.entity.User;
-import com.neo.springBoot.entity.UserRepository;
-import com.neo.springBoot.service.UserService;
+import com.demo.springBoot.entity.User;
+import com.demo.springBoot.entity.UserRepository;
+import com.demo.springBoot.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

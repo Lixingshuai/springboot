@@ -1,4 +1,4 @@
-package com.neo.springBoot.controller;
+package com.demo.springBoot.controller;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.neo.springBoot.entity.User;
-import com.neo.springBoot.service.UserService;
+import com.demo.springBoot.entity.User;
+import com.demo.springBoot.service.UserService;
 
 @Controller
 public class UserController {

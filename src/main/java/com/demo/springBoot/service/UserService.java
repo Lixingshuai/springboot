@@ -1,8 +1,8 @@
-package com.neo.springBoot.service;
+package com.demo.springBoot.service;
 
 import java.util.List;
 
-import com.neo.springBoot.entity.User;
+import com.demo.springBoot.entity.User;
 
 public interface UserService {
 	List<User> getUserList();

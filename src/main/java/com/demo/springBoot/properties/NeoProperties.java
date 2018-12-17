@@ -1,4 +1,4 @@
-package com.neo.springBoot.properties;
+package com.demo.springBoot.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.neo.springBoot.entity;
+package com.demo.springBoot.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
